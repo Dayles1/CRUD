@@ -21,11 +21,15 @@ class PostController extends Controller
         }
         public function store(Request $request)
         {
-            $posts= new Article();
-            $posts->title = $request->title;
-            $posts->description=$request->description;
-            // $article->status=$request->status;
-            $posts->save();
+            $post= new Article();
+            $post->title = $request->title;
+            $post->description=$request->description;
+            // $post = $request->file('image');
+            // $fileName = time() . '.' . $post->getClientOriginalExtension(); 
+            // $filePath = $post->storeAs('uploads', $fileName, 'public'); 
+            // response()->json(['filePath' => $filePath]); 
+            $post->save();
+
             return redirect()->route('index');
         }
         public function delete($id){
@@ -34,12 +38,14 @@ class PostController extends Controller
         public function destroy($id)
 {
     $post = Article::find($id);
+    @unlink(storage_path('App/pupblic') .''. $post->id .'');
     $post->delete();
     return redirect()->route('index');
 }
 
 public function putEdit($id){
-    return view('editPut',compact('id'));
+    $post = Article::find($id);
+    return view('editPut',compact('post'));
 }
  public function putUpdate(Request $request, $id)
     {

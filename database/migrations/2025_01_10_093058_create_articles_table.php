@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             // $table->boolean('status');
-            
+            // $table->string('path');
             $table->timestamps();
         });
     }
@@ -28,5 +28,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('articles');
+        // Schema::table('articles', function(Blueprint $table){
+        //     $table->dropColumn('path');
+        // });
     }
 };

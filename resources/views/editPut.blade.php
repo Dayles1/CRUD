@@ -3,7 +3,7 @@
 
 @section('content')
 <br>
-<form action="{{route('posts.putUpdade', $id)}}" method="POST">
+<form action="{{route('posts.putUpdade', $post->id)}}" method="POST">
     @csrf
     @method('PUT')
     <div class="form-container">
@@ -11,13 +11,13 @@
 
         <div class="input-group">
             <label for="title">Title:</label>
-            <input type="text" name="title" id="title"  required>
+            <input type="text" name="title" id="title" value="{{ old('title', $post->title) }}" required>
 
         </div>
 
         <div class="input-group">
             <label for="description">Description:</label>
-            <textarea name="description" id="description" rows="4" required></textarea>
+            <textarea name="description" id="description" rows="4" required>{{ old('description', $post->description) }}</textarea>
 
         </div>
 

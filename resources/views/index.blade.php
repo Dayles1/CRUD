@@ -14,6 +14,7 @@
                 <p class="post-description">
                     {{ $post->description }}
                 </p>
+                <img src="{{asset('/storage/' . $post->path)}}" alt="" width="50">
             </div>
       
             <div class="post-actions">

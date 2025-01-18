@@ -104,7 +104,7 @@
   </header>
 
   <nav>
-    <a href="/posts">All Posts</a>
+    <a href="/">All Posts</a>
     <a href="/posts/create">Create Post</a>
   </nav>
 

@@ -3,7 +3,7 @@
 
 @section('content')
 <br>
-<form action="{{route('store')}}" method="POST">
+<form action="{{route('store')}}" method="POST" enctype="multipart/form-data">
   @csrf
   <div class="form-container">
     <h2>Create a New Post</h2>
@@ -11,17 +11,13 @@
     <div class="input-group">
       <label for="title">Title:</label>
       <input type="text" name="title" id="title" value="{{ old('title') }}" required>
-      @error('title')
-          <div class="error">{{ $message }}</div>
-      @enderror
+     
     </div>
 
     <div class="input-group">
       <label for="description">Description:</label>
       <textarea name="description" id="description" rows="4" required>{{ old('description') }}</textarea>
-      @error('description')
-          <div class="error">{{ $message }}</div>
-      @enderror
+   
     </div>
 
     <button type="submit" class="submit-btn">Submit</button>

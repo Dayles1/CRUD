@@ -7,7 +7,7 @@ use App\Http\Controllers\PostController;
 // Route::get('/', function () {
 //     return view('index');
 // });
-Route::get('/posts', [PostController::class, 'index'])->name('index');
+Route::get('/', [PostController::class, 'index'])->name('index');
 
 
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create'); 
