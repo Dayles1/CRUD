@@ -3,24 +3,27 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 
-// Route::get('/', function () {
-//     return view('index');
-// });
-Route::get('/', [PostController::class, 'index'])->name('index');
+Route::get('/', [UserController::class, 'authorize'])->name('authorize');
+Route::post('/store', [UserController::class, 'store'])->name('store');
 
 
-Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create'); 
-Route::post('/posts/store', [PostController::class, 'store'])->name('store'); 
+// Route::get('/', [PostController::class, 'index'])->name('index');
 
-Route::get('/posts/edit/{id}', [PostController::class, 'edit'])->name('posts.patch'); 
-Route::patch('/posts/edit/{id}', [PostController::class, 'update'])->name('posts.update');
 
-Route::get('/posts/pu/edit/{id}', [PostController::class, 'putEdit'])->name('posts.put') ;
-Route::put('/posts/pu/edit/{id}', [PostController::class, 'putUpdate'])->name('posts.putUpdade'); 
+// Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create'); 
+// Route::post('/posts/store', [PostController::class, 'store'])->name('store'); 
 
-Route::delete('/posts/delete/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
-Route::get('/posts/{id}', [PostController::class, 'delete'])->name('posts.delete'); 
+// Route::get('/posts/edit/{id}', [PostController::class, 'edit'])->name('posts.patch'); 
+// Route::patch('/posts/edit/{id}', [PostController::class, 'update'])->name('posts.update');
+
+// Route::get('/posts/pu/edit/{id}', [PostController::class, 'putEdit'])->name('posts.put') ;
+// Route::put('/posts/pu/edit/{id}', [PostController::class, 'putUpdate'])->name('posts.putUpdade'); 
+
+// Route::delete('/posts/delete/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
+// Route::get('/posts/{id}', [PostController::class, 'delete'])->name('posts.delete'); 
+
 
 
 
